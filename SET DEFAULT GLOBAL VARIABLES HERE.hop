@@ -1,0 +1,193 @@
+;MAKROTYP=0
+;INSTVERSION=
+;EXEVERSION=7.0.2.4[Hops.exe]
+;BILD=SET DEFAULT GLOBAL VARIABLES HERE.WMF
+;INFO=
+;WZGV=7505D_184
+;WZGVCONFIG=
+;MASCHINE=HOLZHER
+;NCNAME=SET DEFAULT GLOBAL VARIABLES HERE
+;KOMMENTAR=
+;DX=0.000
+;DY=0.000
+;DZ=0
+;DIALOGDLL=Dialoge.Dll
+;DIALOGPROC=StandardFormAnzeigen
+;DIALOGKIND=0
+;AUTOSCRIPTSTART=1
+;BUTTONBILD=
+;DIMENSION_UNIT=1
+VARS
+   DX := 24;*VAR*Dimension X
+   DY := 20;*VAR*Dimension Y
+   DZ := 0.75;*VAR*Dimension Z
+   _CD := -0.85mm;*VAR*GLOBAL VAR (+/-MM)
+   _CD_MODIFY := -0.525mm;*VAR*GLOBAL VAR (+/-MM)
+   _T2CD := -0.9mm;*VAR*GLOBAL 1/2" BIT CUT DEPTH (-MM)
+   _T3CD := -0.9mm;*VAR*GLOBAL 3/8" BIT CUT DEPTH (-MM)
+   _T4CD := -0.9mm;*VAR*GLOBAL 1/4" BIT CUT DEPTH (-MM)
+   _T5CD := 0;TOOL #5 UNDEFINED
+   _T6CD := 0;TOOL #6 UNDEFINED
+   _T7CD := -0.5mm;*VAR*GLOBAL MITER BIT CUT DEPTH (-MM)
+   _T8CD := -0.855mm;*VAR*GLOBAL VORTEX CUT DEPTH (-MM)
+   _T9CD := -0.9mm;*VAR*GLOBAL BUTCHER BLOCK BIT CUT DEPTH (-MM)
+   _KD_X := 9.3mm;*VAR*9.5mm is spec dimesion || GLOBAL KD X VALUE (MM)
+   _KD_Y := 37mm;*VAR*GLOBAL KD Y VALUE (MM)
+   _KD_Z := -14.4mm;*VAR*14.4 is spec depth || GLOBAL KD Y VALUE (mm)
+   _FROM_TOP := 10mm;*VAR*GLOBAL FROM TOP OF PARD VALUE
+   _FROM_BOTTOM := 9mm;*VAR*GLOBAL FROM BOTTOM OF PARD VALUE
+   _DD := -16.25mm;*VAR*GLOBAL DRILL DEPTH (-MM)
+   _DBL_DD := -6.5mm;*VAR*GLOBAL THROUGH DRILL DEPTH (-MM)
+   _SLOW := 0.7;*VAR*GLOBAL 70% TOOL SPEED
+   _CRAWL := 0.3;*VAR*GLOBAL 30% TOOL SPEED
+   _DATO_W := 13.45mm;*VAR*GLOBAL DATO WIDTH (FOR 1/2 INCH)
+   _DATO_D := 12.5mm;*VAR*GLOBAL DATO DEPTH
+   _SHALLOW_DATO_W := 0.67;*VAR*
+   _SHALLOW_DATO_D := 8.5mm;*VAR*
+START
+Fertigteil (DX,DY,DZ,0,0,0,0,0,'USE THIS PROGRAM TO RESET THE GLOBAL VARIABLES',0,0,0,0)
+CALL Park_V7 ( VAL MODE:=2,POSX:=0,POSY:=0)
+WZF (3,_VE,_V,_VA,_SD,_ANF,'1')
+;... WRITE GLOBAL VARS TO FILE
+IF _CD <> 0
+WriteVar (_CD)
+ELSE
+ChangeVar (_CD)
+END
+;...
+IF _CD_MODIFY <>0
+WriteVar (_CD_MODIFY)
+ELSE
+ChangeVar (_CD_MODIFY)
+END
+;...
+IF _KD_X <>0
+WriteVar (_KD_X)
+ELSE
+ChangeVar (_KD_X)
+END
+;...
+IF _KD_Y <> 0
+WriteVar (_KD_Y)
+ELSE
+ChangeVar (_KD_Y)
+END
+;...
+IF _KD_Z <> 0
+WriteVar (_KD_Z)
+ELSE
+ChangeVar (_KD_Z)
+END
+;...
+IF _T2CD <> 0
+;EXPORT 1/2 BIT
+WriteVar (_T2CD)
+ELSE
+ChangeVar (_T2CD)
+END
+;...
+IF _T3CD <> 0
+;EXPORT 3/8 BIT
+WriteVar (_T3CD)
+ELSE
+ChangeVar (_T3CD)
+END
+;...
+IF _T4CD <> 0
+;EXPORT 1/4 BIT
+WriteVar (_T4CD)
+ELSE
+;ChangeVar (_T4CD)
+END
+;...
+IF _T5CD <> 0
+;TOOL 5 NOT DEFINED
+WriteVar (_T5CD)
+ELSE
+;ChangeVar (_T5CD)
+END
+;...
+IF _T6CD <> 0
+;TOOL 6 NOT DEFINED
+WriteVar (_T6CD)
+ELSE
+;ChangeVar (_T6CD)
+END
+;...
+IF _T7CD <> 0
+;EXPORT MITER BIT
+WriteVar (_T7CD)
+ELSE
+ChangeVar (_T7CD)
+END
+;...
+IF _T8CD <> 0
+;EXPORT 3/8 VORTEX BIT
+WriteVar (_T8CD)
+ELSE
+ChangeVar (_T8CD)
+END
+;...
+IF _T9CD <> 0
+;EXPORT 1/2 BUTCHER BLOCK BIT
+WriteVar (_T9CD)
+ELSE
+ChangeVar (_T9CD)
+END
+;...
+IF _FROM_TOP <> 0
+;EXPORT 1/2 BUTCHER BLOCK BIT
+WriteVar (_FROM_TOP)
+ELSE
+ChangeVar (_FROM_TOP)
+END
+;...
+IF _FROM_BOTTOM <> 0
+WriteVar (_FROM_BOTTOM)
+ELSE
+ChangeVar (_FROM_BOTTOM)
+END
+;...
+IF _DD <> 0
+WriteVar (_DD)
+ELSE
+ChangeVar (_DD)
+END
+;...
+IF _DBL_DD <> 0
+WriteVar (_DBL_DD)
+ELSE
+ChangeVar (_DBL_DD)
+END
+;...
+IF _SLOW <> 0
+WriteVar (_SLOW)
+ELSE
+ChangeVar (_SLOW)
+END
+;...
+IF _CRAWL <> 0
+WriteVar (_CRAWL)
+ELSE
+ChangeVar (_CRAWL)
+END
+IF _DATO_W <> 0
+WriteVar (_DATO_W)
+ELSE
+ChangeVar (_DATO_W)
+END
+IF _DATO_D <> 0
+WriteVar (_DATO_D)
+ELSE
+ChangeVar (_DATO_D)
+END
+IF _SHALLOW_DATO_W <> 0
+WriteVar (_SHALLOW_DATO_W)
+ELSE
+ChangeVar (_SHALLOW_DATO_W)
+END
+IF _SHALLOW_DATO_D <> 0
+WriteVar (_SHALLOW_DATO_D)
+ELSE
+ChangeVar (_SHALLOW_DATO_D)
+END

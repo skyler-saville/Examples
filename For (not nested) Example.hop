@@ -1,0 +1,36 @@
+;MAKROTYP=0
+;INSTVERSION=
+;EXEVERSION=7.0.2.4[Hops.exe]
+;BILD=FOR (NOT NESTED) EXAMPLE.WMF
+;INFO=
+;WZGV=7505D_184
+;WZGVCONFIG=
+;MASCHINE=HOLZHER
+;NCNAME=For (not nested) Example
+;KOMMENTAR=
+;DX=0.000
+;DY=0.000
+;DZ=0
+;DIALOGDLL=Dialoge.Dll
+;DIALOGPROC=StandardFormAnzeigen
+;DIALOGKIND=0
+;AUTOSCRIPTSTART=1
+;BUTTONBILD=
+;DIMENSION_UNIT=1
+VARS
+   DX := 24;*VAR*Dimension X
+   DY := 20;*VAR*Dimension Y
+   DZ := 1;*VAR*Dimension Z
+   var := 1;*VAR*
+   stx := 1;*VAR*
+   endx := 1;*VAR*
+   stepx := 32mm;*VAR*
+START
+Fertigteil (DX,DY,DZ,0,0,0,0,0,'',0,0,0)
+CALL Park_V7 ( VAL MODE:=3,POSX:=0,POSY:=0)
+WZF (2,_VE,_V,_VA,_SD,_ANF,'1')
+FOR var := stx TO dx-endx STEP stepx
+SP (var,0,-0.1MM,0,0,6,0,0,0,1,0,0,0,_AT_MAXDEPTH,0,0,0,0,0,0,0,0,0)
+G01 (var,0,0,0,7,2)
+EP (0,_ANF,0)
+END

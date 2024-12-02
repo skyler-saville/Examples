@@ -1,0 +1,42 @@
+;MAKROTYP=0
+;INSTVERSION=
+;EXEVERSION=7.0.2.4[Hops.exe]
+;BILD=ALL GLOBAL TOOL - STARTER.WMF
+;INFO=
+;WZGV=7505D_184
+;WZGVCONFIG=
+;MASCHINE=HOLZHER
+;NCNAME=ALL GLOBAL TOOL - STARTER
+;KOMMENTAR=
+;DX=0.000
+;DY=0.000
+;DZ=0
+;DIALOGDLL=Dialoge.Dll
+;DIALOGPROC=StandardFormAnzeigen
+;DIALOGKIND=0
+;AUTOSCRIPTSTART=1
+;BUTTONBILD=
+;DIMENSION_UNIT=1
+VARS
+   DX := 30.98;Dimension X
+   DY := 24;*VAR*Dimension Y
+   DZ := 0.75;*VAR*Dimension Z
+   _CD := 0;
+   CD := 0;
+   _KD_X := 0;
+   _KD_Y := 0;
+   _KD_Z := 0;
+   TOOL := 3;*VAR*2.3.4.7.9
+   _TOOL := 0;
+   PASSES := 2;*VAR*
+START
+Fertigteil (DX,DY,DZ,0,0,0,0,0,'STARTING POINT PROGRAM',0,0,0,0)
+CALL Park_V7 ( VAL MODE:=2,POSX:=0,POSY:=0)
+_TOOL := TOOL
+WriteVar (_TOOL)
+CALL Set_Tool_Size ()
+ReadVar (_CD)
+CD := _CD
+;--
+;ADD CODE HERE
+;--
