@@ -1,12 +1,12 @@
 ;MAKROTYP=0
 ;INSTVERSION=
 ;EXEVERSION=7.0.2.4[Hops.exe]
-;BILD=ALL GLOBAL TOOL - STARTER.WMF
+;BILD=ALL MACRO - STARTER.WMF
 ;INFO=
 ;WZGV=7505D_184
 ;WZGVCONFIG=
 ;MASCHINE=HOLZHER
-;NCNAME=ALL GLOBAL TOOL - STARTER
+;NCNAME=ALL MACRO - STARTER
 ;KOMMENTAR=
 ;DX=0.000
 ;DY=0.000
@@ -18,20 +18,18 @@
 ;BUTTONBILD=
 ;DIMENSION_UNIT=1
 VARS
-   DX := 96;Dimension X
-   DY := 48;Dimension Y
+   DX := 24;*VAR*Dimension X
+   DY := 24;*VAR*Dimension Y
    DZ := 0.75;*VAR*Dimension Z
    _CD := 0;
    CD := 0;
-   _KD_X := 0;
-   _KD_Y := 0;
-   _KD_Z := 0;
-   TOOL := 9;*VAR*2.3.4.7.9
+   TOOL := 3;*VAR*2.3.4.7.9
+   POSX := 0;*VAR*
+   POSY := 0;*VAR*
    _TOOL := 0;
-   PASSES := 2;*VAR*
+   PASSES := 2;
 START
 Fertigteil (DX,DY,DZ,0,0,0,0,0,'DOOR MACRO',0,0,0,0)
-CALL Park_V7 ( VAL MODE:=2,POSX:=0,POSY:=0)
 ;GET CUT DEPTH FOR CURRENT TOOL
 _TOOL := TOOL
 WriteVar (_TOOL)
